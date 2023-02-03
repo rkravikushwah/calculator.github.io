@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator3 mi</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="top">
+            
+            <input type="text" id="disp" >
+        </div>
+        <div class="cal-buttons">
+            <button  onclick="disp('1')">1</button>
+            <button  onclick="disp('2')">2</button>
+            <button  onclick="disp('3')">3</button>
+            <button class="op" onclick="clearAll()">C</button>
+
+            <button  onclick="disp('4')">4</button>
+            <button  onclick="disp('5')">5</button>
+            <button  onclick="disp('6')">6</button>
+            <button class="op"  onclick="disp('+')">+</button>
+
+            <button  onclick="disp('7')">7</button>
+            <button  onclick="disp('8')">8</button>
+            <button  onclick="disp('9')">9</button>
+            <button  class="op" onclick="disp('-')">-</button>
+
+            <button  onclick="disp('0')">0</button>
+            <button  onclick="disp('.')">.</button>
+            <button  class="op" onclick="disp('*')">x</button>
+            <button  class="op" onclick="disp('/')">/</button>
+
+            <button  onclick="solve()" id="equal" class="equal">=</button>
+            <button  onclick="backSpace()" id="bs" class="equal">Backspace</button>
+
+        </div>
+    </div>
+    <script>
+        function disp(val)
+        {
+          document.getElementById("disp").value+=val;   
+        }
+        function clearAll()
+        {
+            document.getElementById("disp").value="";
+        }
+        function solve()
+        {
+            var x=document.getElementById("disp").value;
+            var y=eval(x);
+            document.getElementById("disp").value=y;
+            color();
+        }
+        function backSpace()
+        {
+            var num=document.getElementById("disp");
+            var remove=num.value;
+            remove=remove.slice(0,-1);
+            num.value=remove;
+         
+        }
+        function color()
+        {
+           var p= document.getElementById("disp").value;
+           p.style.color="green";
+
+        }
+
+
+    </script>
+   
+    <!--<script src="bootstrap/js/jquery-3.6.1"></script>
+    <script src="bootstrap/js/bootstrap.min"></script>-->
+</body>
+</html>
